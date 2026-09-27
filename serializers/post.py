@@ -5,8 +5,9 @@ from .comment import CommentSchema
 
 class PostSchema(BaseModel):
     id: Optional[int] = True
+    title: str
     content: str
-    rating: int
+    author: str
     comments: List[CommentSchema] = []
 
     class Config:
@@ -15,16 +16,18 @@ class PostSchema(BaseModel):
 
 # these are for req.body
 class CreatePostSchema(BaseModel):
+    title: str
     content: str
-    rating: int
+    author: str
 
     class Config:
         orm_mode = True
 
 
 class UpdatePostSchema(BaseModel):
+    title: str
     content: str
-    rating: int
+    author: str
 
     class Config:
         orm_mode = True

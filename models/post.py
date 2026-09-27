@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Boolean
+from sqlalchemy import Column, Integer, String
 
 from sqlalchemy.orm import relationship
 from .comment import CommentModel
@@ -12,6 +12,7 @@ class PostModel(BaseModel):
     id = Column(Integer, primary_key=True, index=True)
 
     # Specific columns for our Tea Table.
+    title = Column(String)
     content = Column(String)
-    rating = Column(Integer)
+    author = Column(String)
     comments = relationship("CommentModel", back_populates="post")
