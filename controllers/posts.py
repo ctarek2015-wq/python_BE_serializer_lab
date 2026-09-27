@@ -58,5 +58,5 @@ def delete_post(post_id: int, db: Session = Depends(get_db)):
     if not db_post:
         raise HTTPException(status_code=404, detail="post not found")
     db.delete(db_post)
-    db.commit
+    db.commit()
     return None
